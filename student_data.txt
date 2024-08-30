@@ -9,3 +9,4 @@
 011,Sai Nath,10th,425,Good
 012,Shyama Nandy,10th,568,Excellent
 013,Harihara Sahu,10th,421,Good
+014,Radhanath Das,10th,356,Poor

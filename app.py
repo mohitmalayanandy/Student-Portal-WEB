@@ -8,31 +8,33 @@ def index():
     filename = request.form.get('filename', 'student_data.txt')
     data = []
     sorted_data = []
+    
     if os.path.exists(filename):
         with open(filename, 'r') as file:
             data = [line.strip().split(',') for line in file.readlines()]
 
     if request.method == 'POST':
-        roll_no = request.form['roll_no']
-        name = request.form['name']
-        student_class = request.form['class']
-        avg_mark = request.form['avg_mark']
-        remark = request.form['remark']
-        filename = request.form['filename']
+        if 'submit' in request.form:
+            roll_no = request.form['roll_no']
+            name = request.form['name']
+            student_class = request.form['class']
+            avg_mark = request.form['avg_mark']
+            remark = request.form['remark']
+            filename = request.form['filename']
 
-        details = f"{roll_no},{name},{student_class},{avg_mark},{remark}\n"
-        
-        with open(filename, "a") as file:
-            file.write(details)
-        
-        return redirect(url_for('index'))
-    
-    return render_template('index.html', data=data, filename=filename)
+            details = f"{roll_no},{name},{student_class},{avg_mark},{remark}\n"
+            
+            with open(filename, "a") as file:
+                file.write(details)
+            
+            return redirect(url_for('index'))
 
-@app.route('/sort', methods=['POST'])
+    return render_template('index.html', data=data, filename=filename, sorted_data=sorted_data)
+
+@app.route('/sort', methods=['GET'])
 def sort_data():
-    sort_by = request.form['sort_by']
-    filename = request.form['filename']
+    sort_by = request.args.get('sort_by')
+    filename = request.args.get('filename')
     sorted_filename = f"sorted_{filename}"
 
     if not os.path.exists(filename):
@@ -63,7 +65,7 @@ def sort_data():
     with open(sorted_filename, 'r') as file:
         sorted_data = [line.strip().split(',') for line in file.readlines()]
     
-    return render_template('index.html', sorted_data=sorted_data, sorted_filename=sorted_filename)
-    #return f"Data sorted by {sort_by} and saved to {sorted_filename}"
+    return render_template('index.html', sorted_data=sorted_data, filename=sorted_filename)
+
 if __name__ == '__main__':
     app.run(debug=True)
