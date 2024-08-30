@@ -10,3 +10,5 @@
 012,Shyama Nandy,10th,568,Excellent
 013,Harihara Sahu,10th,421,Good
 014,Radhanath Das,10th,356,Poor
+015,Biswa Ranjan Biswal,10th,425,Good
+016,Lakshman Nayak,10th,256,Good
