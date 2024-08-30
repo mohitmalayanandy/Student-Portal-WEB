@@ -1,0 +1,11 @@
+001,Mohit Malaya Nandy,10th,512,Good
+002,Harit Kapani,10th,489,Good
+003,Amit Kumar Singh,10th,564,Excellent
+005,Pabitra Barik,10th,465,Good
+007,Sanjib Giri,10th,562,Excellent
+008,Pratik Jena,10th,498,Good
+009,Sanjay Kar,10th,563,Excellent
+010,Nityananda Patra,10th,465,Good
+011,Sai Nath,10th,425,Good
+012,Shyama Nandy,10th,568,Excellent
+013,Harihara Sahu,10th,421,Good

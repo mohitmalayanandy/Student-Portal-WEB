@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Data</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row1">
+            <div class="column1">
+                <h1>Enter Student Details</h1>
+                <form action="/" method="post">
+                    <label for="roll_no">Roll No:</label>
+                    <input type="text" id="roll_no" name="roll_no"><br>
+
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name"><br>
+
+                    <label for="class">Class:</label>
+                    <select id="class" name="class">
+                        <option value="1st">1st</option>
+                        <option value="2nd">2nd</option>
+                        <option value="3rd">3rd</option>
+                        <option value="4th">4th</option>
+                        <option value="5th">5th</option>
+                        <option value="6th">6th</option>
+                        <option value="7th">7th</option>
+                        <option value="8th">8th</option>
+                        <option value="9th">9th</option>
+                        <option value="10th">10th</option>
+                    </select><br>
+
+                    <label for="avg_mark">Avg Mark:</label>
+                    <input type="text" id="avg_mark" name="avg_mark"><br>
+
+                    <label for="remark">Remark:</label>
+                    <input type="text" id="remark" name="remark"><br>
+
+                    <label for="filename">File Name:</label>
+                    <input type="text" id="filename" name="filename" value="student_data.txt"><br>
+
+                    <button type="submit" name="submit">Submit</button>
+                </form>
+            </div>
+            <div class="column2">
+                <h1>Student Data</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Roll No</th>
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>Avg Mark</th>
+                            <th>Remark</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in data %}
+                        <tr>
+                            <td>{{ row[0] }}</td>
+                            <td>{{ row[1] }}</td>
+                            <td>{{ row[2] }}</td>
+                            <td>{{ row[3] }}</td>
+                            <td>{{ row[4] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row2">
+            <div class="column1">
+                <h1>Sort Data</h1>
+                <form action="/" method="post">
+                    <label for="sort_by">Sort By:</label>
+                    <select id="sort_by" name="sort_by">
+                        <option value="Roll No">Roll No</option>
+                        <option value="Name">Name</option>
+                        <option value="Class">Class</option>
+                        <option value="Avg Mark">Avg Mark</option>
+                        <option value="Remark">Remark</option>
+                    </select><br>
+
+                    <label for="filename">File Name:</label>
+                    <input type="text" id="filename" name="filename" value="student_data.txt"><br>
+
+                    <button type="submit" name="sort">Sort</button>
+                </form>
+            </div>
+            <div class="column2">
+                <h1>Sorted Student Data</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Roll No</th>
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>Avg Mark</th>
+                            <th>Remark</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in sorted_data %}
+                        <tr>
+                            <td>{{ row[0] }}</td>
+                            <td>{{ row[1] }}</td>
+                            <td>{{ row[2] }}</td>
+                            <td>{{ row[3] }}</td>
+                            <td>{{ row[4] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
